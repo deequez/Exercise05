@@ -1,4 +1,5 @@
 import string
+
 received_file = raw_input("Please enter in a text file")
 try:
   f = open(received_file)
@@ -8,21 +9,20 @@ except ValueError:
 text = f.read()
 text.lower()
 f.close()
+print text
+text.replace(' ','')
+text.strip()
+l = sorted(text)
 
-letter_dict = {}
-for char in text:
-  if char in letter_dict:
-    count = letter_dict[char]
-    count = count + 1
-    letter_dict[char] = count
+
+alphabet = 'abcdefghijklmnopqrstuvwxyz'
+for char in alphabet:
+  if char not in l:
+    count = 0
   else:
-   count = 1
-   letter_dict[char] = count
-
-list_of_keys_random  = letter_dict.keys()
-list_of_keys_random.sort()
-
-for one_key in list_of_keys_random:
-  value = letter_dict[one_key]
-  print value
+    count = 0
+    for item in l:
+      if item == char:
+        count += 1    
+  print '%r' % (count)
 
